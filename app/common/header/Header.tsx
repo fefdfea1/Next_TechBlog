@@ -27,7 +27,6 @@ export default function Header() {
 const HeaderStyle = css({
   width: "90%",
   maxWidth: "1200px",
-
   display: "flex",
   justifyContent: "space-around",
   borderRadius: "30px",
