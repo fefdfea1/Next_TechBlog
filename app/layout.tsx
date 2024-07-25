@@ -1,19 +1,9 @@
 import type { Metadata } from "next";
-
 import { Nanum_Gothic, Indie_Flower } from "next/font/google";
 import "@/public/css/global.css";
-
-import path from "path";
-import { sync } from "glob";
-
-const BASE_PATH = "/app/posts";
-const POSTS_PATH = path.join(process.cwd(), BASE_PATH);
-
-export const getPostPaths = (category?: string) => {
-  const folder = category || "**";
-  const paths: string[] = sync(`${POSTS_PATH}/${folder}/**/*.mdx`);
-  return paths;
-};
+import { css } from "@/styled-system/css";
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 
 const Gothic = Nanum_Gothic({
   subsets: ["latin"],
@@ -38,7 +28,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={Gothic.className}>{children}</body>
+      <Suspense fallback={<Loading />}>
+        <body className={`${Gothic.className} ${Body}`}>{children}</body>
+      </Suspense>
     </html>
   );
 }
+
+const Body = css({
+  backgroundColor: "MainBg",
+});

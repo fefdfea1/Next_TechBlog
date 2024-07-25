@@ -1,24 +1,38 @@
 import { css } from "@/styled-system/css";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import style from "@/public/css/MainpostCard/post.module.css";
 
-export default function MainPostCard() {
+type propsType = {
+  title: string;
+  Desc: string;
+  Date: string;
+  tag: string;
+};
+
+export default function MainPostCard(props: propsType) {
   return (
     <article className={Card}>
-      <picture className="thumbnail">
-        <img src="" alt="" />
-      </picture>
-      <div className={PostInfo}>
-        <span>HTML</span>
-        <h2>제목</h2>
-        <p>서어어어얼명</p>
-        <p>2024.07.21</p>
-      </div>
+      <a href="#">
+        <picture className="thumbnail">
+          <img src="" alt="" />
+        </picture>
+        <div className={PostInfo}>
+          <span>{props.tag}</span>
+          <h2>{props.title}</h2>
+          <div className={`${style.Desc}`}>
+            <MDXRemote source={props.Desc} />
+          </div>
+
+          <p>{props.Date}</p>
+        </div>
+      </a>
     </article>
   );
 }
 
 const Card = css({
-  width: "33.333%",
-  maxWidth: "329px",
+  width: "100%",
+  maxWidth: "320px",
   height: "374px",
   boxShadow: "0 4px 13px rgba(0,0,0,0.25)",
   borderRadius: "20px",
@@ -29,7 +43,7 @@ const Card = css({
     width: "100%",
     height: "176px",
     objectFit: "cover",
-    border: "1px solid black",
+    borderBottom: "1px solid black",
     borderRadius: "20px 20px 0 0",
   },
 
@@ -46,7 +60,7 @@ const PostInfo = css({
     minWidth: "50px",
     display: "inline-block",
     borderRadius: "15px",
-    padding: "5px 25px",
+    padding: "2px 14px",
     fontSize: "0.8125em",
     backgroundColor: "TagBg",
     color: "white",
@@ -54,22 +68,23 @@ const PostInfo = css({
   },
 
   "& h2": {
-    fontSize: "1.125em",
+    fontSize: "0.875em",
     fontWeight: 800,
-    marginTop: "20px",
+    marginTop: "10px",
     color: "PostTitleColor",
   },
 
-  "& p:nth-of-type(1)": {
-    marginTop: "15px",
+  "& div": {
+    width: "100%",
+    marginTop: "10px",
     color: "PostDescColor",
     fontSize: "0.8125em",
   },
 
-  "& p:nth-of-type(2)": {
+  "& p": {
     color: "black",
     fontSize: "0.8125em",
-    marginTop: "15px",
+    marginTop: "14px",
     fontWeight: "700",
   },
 });

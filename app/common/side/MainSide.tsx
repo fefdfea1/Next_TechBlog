@@ -34,7 +34,7 @@ export default function MainSide() {
               </div>
               <FontAwesomeIcon icon={faArrowDown} />
             </div>
-            <ul className={ItemList}>
+            <ul className={`${ItemList} active`}>
               <li>
                 <FontAwesomeIcon icon={faChevronRight} />
                 <span>HTML</span>
@@ -51,20 +51,21 @@ export default function MainSide() {
 }
 
 const Side = css({
-  width: "20%",
+  width: "19%",
   maxWidth: "500px",
   display: "flex",
   flexDirection: "column",
-  marginTop: "20px",
-  position: "relative",
+  position: "fixed",
+  left: "20px",
+  top: "70px",
 
   "&::before": {
     content: '""',
     position: "absolute",
     top: "0",
-    right: "-60px",
+    right: "59px",
     width: "1px",
-    height: "100%",
+    height: "800px",
     backgroundColor: "black",
   },
 
@@ -90,7 +91,7 @@ const Side = css({
 
     "&::after": {
       content: "''",
-      width: "100%",
+      width: "74%",
       height: "1px",
       position: "absolute",
       top: "200%",
@@ -101,25 +102,29 @@ const Side = css({
     "& input": {
       width: "200px",
       borderRadius: "30px",
-      border: "1px solid black",
       marginRight: "20px",
-      padding: "17px 10px",
+      padding: "17px 20px",
       fontSize: "0.875em",
+      backgroundColor: "searchBg",
 
       _placeholder: {
         fontSize: "0.875em",
+        color: "placeHolder",
       },
     },
 
     "& > label > svg": {
-      width: "40px",
-      height: "40px",
+      width: "40px !important",
+      height: "40px !important",
     },
   },
 });
 
 const PostList = css({
   marginTop: "82px",
+  overflow: "auto",
+  minHeight: "200px",
+  padding: "0 20px",
 
   "& > div": {
     display: "flex",
@@ -137,6 +142,7 @@ const PostList = css({
     marginTop: "30px",
     fontSize: "1.4375em",
     color: "Primary",
+    padding: "0 0 20px 0",
 
     "& > li > div": {
       display: "flex",
@@ -146,9 +152,9 @@ const PostList = css({
     },
 
     "& > li > div > svg": {
-      width: "30px",
-      height: "30px",
-      marginLeft: "20px",
+      width: "30px !important",
+      height: "30px !important",
+      marginLeft: "20px !important",
     },
   },
 });
@@ -158,6 +164,10 @@ const ItemList = css({
   flexDirection: "column",
   height: "0",
   overflow: "hidden",
+
+  "&.active": {
+    height: "auto",
+  },
 
   "& svg": {
     width: "10px",

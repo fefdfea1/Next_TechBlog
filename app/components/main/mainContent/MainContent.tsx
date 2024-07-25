@@ -1,18 +1,36 @@
 import { css } from "@/styled-system/css";
+import Header from "@/app/common/header/Header";
 
 type propsType = {
   children: React.ReactNode;
 };
 
 export default function MainContent(props: propsType) {
-  return <section className={Section}>{props.children}</section>;
+  return (
+    <div className={Section}>
+      <Header />
+      <section>{props.children}</section>
+    </div>
+  );
 }
 
 const Section = css({
-  width: "70%",
+  width: "80%",
   maxWidth: "1400px",
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
-  marginLeft: "70px",
+
+  "& header": {
+    width: "100%",
+  },
+  "& section": {
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    marginTop: "100px",
+    columnGap: "30px",
+    rowGap: "40px",
+    placeItems: "center",
+  },
 });
