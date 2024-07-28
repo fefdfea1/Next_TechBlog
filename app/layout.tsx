@@ -4,13 +4,14 @@ import "@/public/css/global.css";
 import { css } from "@/styled-system/css";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
+import { headerHover } from "@/app/Logic/headerLogic/headerHover";
 
 const Gothic = Nanum_Gothic({
   subsets: ["latin"],
   weight: ["400", "700", "800"],
 });
 
-export const Indie = Indie_Flower({
+const Indie = Indie_Flower({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--indie-font",
@@ -29,7 +30,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <Suspense fallback={<Loading />}>
-        <body className={`${Gothic.className} ${Body}`}>{children}</body>
+        <body className={`${Indie.variable} ${Gothic.className} ${Body}`}>
+          {children}
+        </body>
       </Suspense>
     </html>
   );

@@ -1,4 +1,3 @@
-"use client";
 import { css } from "@/styled-system/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -106,6 +105,7 @@ const Side = css({
       padding: "17px 20px",
       fontSize: "0.875em",
       backgroundColor: "searchBg",
+      boxShadow: "0 5px 4px rgba(0,0,0,0.2)",
 
       _placeholder: {
         fontSize: "0.875em",

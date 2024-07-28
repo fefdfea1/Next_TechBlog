@@ -11,7 +11,6 @@ type contentType = {
 export function parsePostDetail(postPath: string) {
   const readingFile = fs.readFileSync(postPath, "utf8");
   const { data, content } = matter(readingFile);
-  console.log(data);
   const grayMatter = data as contentType;
   return { ...grayMatter, data, content };
 }

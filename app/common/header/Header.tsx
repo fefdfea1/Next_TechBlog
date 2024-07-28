@@ -1,25 +1,27 @@
 import { css } from "@/styled-system/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { Indie } from "@/app/layout";
 import Link from "next/link";
+import HoverModal from "@/app/components/hoverModal/HoverModal";
 
 export default function Header() {
   return (
-    <header className={HeaderStyle}>
-      <span>
+    <header className={`${HeaderStyle} header`}>
+      <span className="headerItem modalActiveItem">
         Dev
         <FontAwesomeIcon icon={faArrowDown} />
       </span>
-      <span>
+      <span className="headerItem modalActiveItem">
         DevOps
         <FontAwesomeIcon icon={faArrowDown} />
       </span>
-      <span className={`titleLogo ${Indie.className}`}>
+      <span className={`titleLogo`}>
         <Link href={"/"}>fefdfea's Develop</Link>
       </span>
-      <span>전체글</span>
-      <span>방명록</span>
+      <span className="headerItem">전체글</span>
+      <span className="headerItem">방명록</span>
+
+      <HoverModal />
     </header>
   );
 }
@@ -30,26 +32,30 @@ const HeaderStyle = css({
   display: "flex",
   justifyContent: "space-around",
   borderRadius: "30px",
-  border: "1px solid black",
-  padding: "20px 20px",
+  boxShadow: "0 2px 9px rgba(0,0,0,0.25)",
+  position: "relative",
 
-  "& .titleLogo": {
-    color: "HeaderTitleColor",
-    fontSize: "1.625em",
-  },
-
-  "& span": {
+  "& .headerItem": {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     color: "Primary",
     fontSize: "1.4375em",
     cursor: "pointer",
+    padding: "20px 0",
 
     "& svg": {
       width: "20px",
       height: "20px",
       marginLeft: "5px",
+      pointerEvents: "none",
     },
+  },
+
+  "& .titleLogo": {
+    color: "HeaderTitleColor",
+    fontSize: "1.625em",
+    fontFamily: "var(--indie-font)",
+    padding: "20px 0",
   },
 });

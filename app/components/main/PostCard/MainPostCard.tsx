@@ -1,18 +1,20 @@
 import { css } from "@/styled-system/css";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import style from "@/public/css/MainpostCard/post.module.css";
+import Link from "next/link";
 
 type propsType = {
   title: string;
   Desc: string;
   Date: string;
   tag: string;
+  id: string;
 };
 
 export default function MainPostCard(props: propsType) {
   return (
     <article className={Card}>
-      <a href="#">
+      <Link href={`/detail/${props.id}`}>
         <picture className="thumbnail">
           <img src="" alt="" />
         </picture>
@@ -25,7 +27,7 @@ export default function MainPostCard(props: propsType) {
 
           <p>{props.Date}</p>
         </div>
-      </a>
+      </Link>
     </article>
   );
 }

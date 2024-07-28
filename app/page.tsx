@@ -8,8 +8,9 @@ import { nanoid } from "nanoid";
 
 export default function Home() {
   const PostArray = getPostPaths();
+
   return (
-    <main className={Main}>
+    <main className={`${Main} main`}>
       <MainSide />
       <MainContent>
         {PostArray.map((item) => {
@@ -21,6 +22,7 @@ export default function Home() {
               Date={PostData.postDetail.date}
               tag={PostData.postDetail.Tag}
               key={nanoid()}
+              id={"1"}
             />
           );
         })}
