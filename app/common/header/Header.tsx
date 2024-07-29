@@ -1,27 +1,35 @@
+"use client";
 import { css } from "@/styled-system/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import HoverModal from "@/app/components/hoverModal/HoverModal";
+import DevOpsCategory from "./../../components/hoverModal/DevOpsCategory";
+import DevCategory from "@/app/components/hoverModal/DevCategory";
+import { useEffect } from "react";
+import { headerHover, removeHover } from "@/app/Logic/headerLogic/headerHover";
 
 export default function Header() {
+  useEffect(() => {
+    headerHover();
+    return () => removeHover();
+  }, []);
   return (
     <header className={`${HeaderStyle} header`}>
-      <span className="headerItem modalActiveItem">
+      <span className="headerItem modalActiveItem Dev">
         Dev
         <FontAwesomeIcon icon={faArrowDown} />
+        <DevCategory />
       </span>
-      <span className="headerItem modalActiveItem">
+      <span className="headerItem modalActiveItem DevOps">
         DevOps
         <FontAwesomeIcon icon={faArrowDown} />
+        <DevOpsCategory />
       </span>
       <span className={`titleLogo`}>
         <Link href={"/"}>fefdfea's Develop</Link>
       </span>
       <span className="headerItem">전체글</span>
       <span className="headerItem">방명록</span>
-
-      <HoverModal />
     </header>
   );
 }

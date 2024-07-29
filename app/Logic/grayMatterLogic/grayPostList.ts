@@ -13,7 +13,5 @@ export function parsePostAbstract(postPath: string) {
       const url = `/posts/${category}`;
       return { url, category }; // slug는 값이 없으니 category만을 return
     }
-  } else {
-    return "목록을 불러오는중 오류가 발생 했습니다.";
   }
 }

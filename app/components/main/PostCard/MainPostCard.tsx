@@ -8,13 +8,13 @@ type propsType = {
   Desc: string;
   Date: string;
   tag: string;
-  id: string;
+  url: string;
 };
 
 export default function MainPostCard(props: propsType) {
   return (
     <article className={Card}>
-      <Link href={`/detail/${props.id}`}>
+      <Link href={`/detail/${props.url}`}>
         <picture className="thumbnail">
           <img src="" alt="" />
         </picture>

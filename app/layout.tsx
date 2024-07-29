@@ -4,7 +4,6 @@ import "@/public/css/global.css";
 import { css } from "@/styled-system/css";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
-import { headerHover } from "@/app/Logic/headerLogic/headerHover";
 
 const Gothic = Nanum_Gothic({
   subsets: ["latin"],

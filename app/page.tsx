@@ -6,7 +6,7 @@ import { getPostPaths } from "@/app/Logic/grayMatterLogic/getPostPaths";
 import { parsePost } from "@/app/Logic/grayMatterLogic/gray";
 import { nanoid } from "nanoid";
 
-export default function Home() {
+export default function MainPage() {
   const PostArray = getPostPaths();
 
   return (
@@ -15,16 +15,20 @@ export default function Home() {
       <MainContent>
         {PostArray.map((item) => {
           const PostData = parsePost(item);
-          return (
-            <MainPostCard
-              title={PostData.postDetail.title}
-              Desc={PostData.postDetail.content}
-              Date={PostData.postDetail.date}
-              tag={PostData.postDetail.Tag}
-              key={nanoid()}
-              id={"1"}
-            />
-          );
+          if (PostData.listInfo && PostData.postDetail) {
+            return (
+              <MainPostCard
+                title={PostData.postDetail.title}
+                Desc={PostData.postDetail.content}
+                Date={PostData.postDetail.date}
+                tag={PostData.postDetail.Tag}
+                url={PostData.listInfo.url}
+                key={nanoid()}
+              />
+            );
+          } else {
+            return "정보를 불러오는데 실패했습니다.";
+          }
         })}
       </MainContent>
     </main>

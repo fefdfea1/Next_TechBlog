@@ -1,14 +1,15 @@
-import { css } from "@/styled-system/css";
-import MarkUp from "@/app/components/hoverModal/category/MarkUp";
 import Language from "@/app/components/hoverModal/category/Language";
+import Library from "@/app/components/hoverModal/category/Library";
+import MarkUp from "@/app/components/hoverModal/category/MarkUp";
+import TeamProject from "@/app/components/hoverModal/category/TeamProject";
+import { css } from "@/styled-system/css";
 import StyleSheet from "@/app/components/hoverModal/category/StyleSheet";
 import Error from "@/app/components/hoverModal/category/Error";
 import FrameWork from "@/app/components/hoverModal/category/FrameWork";
-import Library from "@/app/components/hoverModal/category/Library";
-import TeamProject from "@/app/components/hoverModal/category/TeamProject";
-export default function HoverModal() {
+
+export default function DevCategory() {
   return (
-    <section className={`${HoverModalStyle} modal`}>
+    <section className={`${HoverModalStyle} DevCategory`}>
       <MarkUp />
       <Language />
       <TeamProject />
@@ -32,7 +33,7 @@ const HoverModalStyle = css({
   borderRadius: "15px",
   boxShadow: "0 2px 9px rgba(0,0,0,0.25)",
 
-  "&.active": {
+  "&.activeDev": {
     display: "grid",
   },
 
