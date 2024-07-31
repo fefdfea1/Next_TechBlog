@@ -2,7 +2,7 @@ import { css } from "@/styled-system/css";
 
 export default function DevOpsCategory() {
   return (
-    <section className={`${HoverModalStyle} DevOpsCategory`}>asds</section>
+    <section className={`${HoverModalStyle} DevOpsCategory`}>asdss</section>
   );
 }
 
