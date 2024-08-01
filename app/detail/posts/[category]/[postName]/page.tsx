@@ -1,10 +1,6 @@
-// "use client";
 import { css } from "@/styled-system/css";
 import Header from "@/app/common/header/Header";
-import { headerHover } from "@/app/Logic/headerLogic/headerHover";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { useEffect } from "react";
-import { removeHover } from "@/app/Logic/headerLogic/headerHover";
 import { parsePostDetail } from "@/app/Logic/grayMatterLogic/grayPostDetail";
 import { getPostPaths } from "@/app/Logic/grayMatterLogic/getPostPaths";
 
@@ -14,11 +10,6 @@ type params = {
 };
 
 export default function DetailPage(params: params) {
-  // useEffect(() => {
-  //   headerHover();
-
-  //   return () => removeHover();
-  // }, []);
   const path = getPostPaths(params.category, params.postName);
   const detail = parsePostDetail(path[0]);
 

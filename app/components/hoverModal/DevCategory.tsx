@@ -27,15 +27,11 @@ const HoverModalStyle = css({
   top: "100%",
   left: "0",
   backgroundColor: "HoverModalBg",
-  display: "none",
+  display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
   padding: "30px",
   borderRadius: "15px",
   boxShadow: "0 2px 9px rgba(0,0,0,0.25)",
-
-  "&.activeDev": {
-    display: "grid",
-  },
 
   "& > div": {
     display: "flex",

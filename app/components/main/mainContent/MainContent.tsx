@@ -1,18 +1,11 @@
-"use client";
 import { css } from "@/styled-system/css";
 import Header from "@/app/common/header/Header";
-import { headerHover } from "@/app/Logic/headerLogic/headerHover";
-import { useEffect } from "react";
 
 type propsType = {
   children: React.ReactNode;
 };
 
 export default function MainContent(props: propsType) {
-  useEffect(() => {
-    headerHover();
-  }, []);
-
   return (
     <div className={Section}>
       <Header />
