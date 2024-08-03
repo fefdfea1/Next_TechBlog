@@ -1,11 +1,17 @@
 import createMDX from "@next/mdx";
+import remarkGfm from 'remark-gfm';
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrism from 'rehype-prism'
 
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
 const withMDX = createMDX({
-  // 추가적인 마크다운 플러그인 설정 가능
+  options:{
+    remarkPlugins:[remarkGfm],
+    rehypePlugins:[rehypeAutolinkHeadings,rehypePrism]
+  }
 });
 
 export default withMDX(nextConfig);

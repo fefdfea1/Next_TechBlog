@@ -4,6 +4,7 @@ import "@/public/css/global.css";
 import { css } from "@/styled-system/css";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
+import GlobalHover from "@/app/components/globalHover/GlobalHover";
 
 const Gothic = Nanum_Gothic({
   subsets: ["latin"],
@@ -28,11 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <Suspense fallback={<Loading />}>
-        <body className={`${Indie.variable} ${Gothic.className} ${Body}`}>
-          {children}
-        </body>
-      </Suspense>
+      <body className={`${Indie.variable} ${Gothic.className} ${Body}`}>
+        <Suspense fallback={<Loading />}>
+          <GlobalHover>{children}</GlobalHover>
+        </Suspense>
+      </body>
     </html>
   );
 }

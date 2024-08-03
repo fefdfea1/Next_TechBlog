@@ -5,24 +5,19 @@ import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import DevOpsCategory from "./../../components/hoverModal/DevOpsCategory";
 import DevCategory from "@/app/components/hoverModal/DevCategory";
-import { useRef, useState } from "react";
 
 export default function Header() {
-  const [DevModalState, setDevState] = useState(false);
-  const [DevOpsState, steDevOpsState] = useState(false);
-  const DevRef = useRef<HTMLSpanElement>(null);
-  const DevOpsRef = useRef<HTMLSpanElement>(null);
   return (
     <header className={`${HeaderStyle} header`}>
-      <span className="headerItem modalActiveItem Dev" ref={DevRef}>
+      <span className="headerItem modalActiveItem Dev">
         Dev
         <FontAwesomeIcon icon={faArrowDown} />
-        {DevModalState && <DevCategory />}
+        <DevCategory />
       </span>
-      <span className="headerItem modalActiveItem DevOps" ref={DevOpsRef}>
+      <span className="headerItem modalActiveItem DevOps">
         DevOps
         <FontAwesomeIcon icon={faArrowDown} />
-        {DevOpsState && <DevOpsCategory />}
+        <DevOpsCategory />
       </span>
       <span className={`titleLogo`}>
         <Link href={"/"}>fefdfea's Develop</Link>

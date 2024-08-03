@@ -1,16 +1,25 @@
-import { Dispatch, RefObject, SetStateAction } from "react";
-
-export function headerOver(
-  event: React.MouseEvent<HTMLElement, MouseEvent>,
-  setDevModal: Dispatch<SetStateAction<boolean>>,
-  steDevOpsState: Dispatch<SetStateAction<boolean>>,
-  DevRef: RefObject<HTMLSpanElement>,
-  DevOps: RefObject<HTMLSpanElement>
+export function headerHover(
+  event: React.MouseEvent<HTMLDivElement, MouseEvent>
 ) {
-  const target = event.target as HTMLElement;
-  if (DevRef.current && DevRef.current) {
-    setDevModal(true);
-  } else if (target.closest(".DevOps")) {
-    steDevOpsState(true);
+  try {
+    const DevCategory = document.querySelector(
+      ".DevCategory"
+    ) as HTMLDivElement;
+    const DevOpsCategory = document.querySelector(
+      ".DevOpsCategory"
+    ) as HTMLDivElement;
+    const DevSpan = document.querySelector(".Dev") as HTMLSpanElement;
+    const DevOpsSpan = document.querySelector(".DevOps") as HTMLSpanElement;
+    const target = event.target as HTMLElement;
+    if (DevSpan.contains(target)) {
+      DevCategory.classList.add("active");
+    } else if (DevOpsSpan.contains(target)) {
+      DevOpsCategory.classList.add("active");
+    } else {
+      DevCategory.classList.remove("active");
+      DevOpsCategory.classList.remove("active");
+    }
+  } catch (error) {
+    return error;
   }
 }

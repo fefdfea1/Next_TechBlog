@@ -1,3 +1,4 @@
+"use client";
 import { css } from "@/styled-system/css";
 import Header from "@/app/common/header/Header";
 
@@ -7,7 +8,7 @@ type propsType = {
 
 export default function MainContent(props: propsType) {
   return (
-    <div className={Section}>
+    <div className={`${Section} hoverEvent`}>
       <Header />
       <section className="mainContent">{props.children}</section>
     </div>
@@ -20,6 +21,7 @@ const Section = css({
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
+  padding: "10px 10px",
 
   "& header": {
     width: "100%",
