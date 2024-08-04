@@ -19,11 +19,10 @@
     "nanoid": "^5.0.7",
     "next": "14.2.5",
     "next-mdx-remote": "^5.0.0",
-    "prism": "^4.1.2",
     "react": "^18",
     "react-dom": "^18",
     "rehype-autolink-headings": "^7.1.0",
-    "rehype-prism": "^2.3.2",
+    "rehype-highlight": "^7.0.0",
     "remark-gfm": "^4.0.0"
   },
   "devDependencies": {

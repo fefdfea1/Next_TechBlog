@@ -3,6 +3,8 @@ import Header from "@/app/common/header/Header";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { parsePostDetail } from "@/app/Logic/grayMatterLogic/grayPostDetail";
 import { getPostPaths } from "@/app/Logic/grayMatterLogic/getPostPaths";
+import rehypeHighlight from "rehype-highlight";
+import "@/public/css/detailPage/detailHeader.css";
 
 type params = {
   category: string;
@@ -13,11 +15,18 @@ export default function DetailPage(params: params) {
   const path = getPostPaths(params.category, params.postName);
   const detail = parsePostDetail(path[0]);
 
+  const options = {
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [rehypeHighlight],
+    },
+  };
+
   return (
     <div className={DetailContainer}>
       <Header />
       <section className={Detail}>
-        <MDXRemote source={detail.content} />
+        <MDXRemote source={detail.content} options={options} />
       </section>
     </div>
   );
