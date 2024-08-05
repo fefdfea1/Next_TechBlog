@@ -12,6 +12,8 @@ type propsType = {
 };
 
 export default function MainPostCard(props: propsType) {
+  const descString = props.Desc.slice(0, 100);
+  console.log(descString);
   return (
     <article className={Card}>
       <Link href={`/detail/${props.url}`}>

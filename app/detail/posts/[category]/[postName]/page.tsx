@@ -4,7 +4,6 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { parsePostDetail } from "@/app/Logic/grayMatterLogic/grayPostDetail";
 import { getPostPaths } from "@/app/Logic/grayMatterLogic/getPostPaths";
 import rehypeHighlight from "rehype-highlight";
-import "@/public/css/detailPage/detailHeader.css";
 
 type params = {
   category: string;
