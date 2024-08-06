@@ -3,7 +3,9 @@ import Header from "@/app/common/header/Header";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { parsePostDetail } from "@/app/Logic/grayMatterLogic/grayPostDetail";
 import { getPostPaths } from "@/app/Logic/grayMatterLogic/getPostPaths";
+import Title from "@/app/components/detail/Title";
 import rehypeHighlight from "rehype-highlight";
+import Reference from "@/app/components/detail/Reference";
 
 type params = {
   category: string;
@@ -24,24 +26,27 @@ export default function DetailPage(params: params) {
   return (
     <div className={DetailContainer}>
       <Header />
+      <Title Title={detail.title} />
       <section className={Detail}>
         <MDXRemote source={detail.content} options={options} />
       </section>
+      {detail.reference && <Reference referenceArray={detail.reference} />}
     </div>
   );
 }
 
 const DetailContainer = css({
-  minWidth: "100%",
-  minHeight: "100vh",
+  maxWidth: "1200px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   padding: "60px 0",
+  margin: "0 auto",
 });
 
 const Detail = css({
   width: "100%",
-  maxWidth: "1000px",
+  maxWidth: "985px",
   marginTop: "60px",
+  wordBreak: "break-all",
 });

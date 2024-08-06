@@ -15,16 +15,19 @@ export default function Title(props: propsType) {
 }
 
 const TitleStyle = css({
+  width: "100%",
+  maxWidth: "985px",
   position: "relative",
-  fontSize: "2.5em",
+  fontSize: "1.8em",
   fontWeight: "800",
+  marginTop: "50px",
   _after: {
     content: "''",
     width: "100%",
     height: "6px",
     position: "absolute",
     left: "0",
-    bottom: "0",
+    bottom: "-10px",
     borderRadius: "20px",
     backgroundColor: "#D9D9D9",
   },
@@ -40,7 +43,7 @@ const TitleStyle = css({
       height: "6px",
       position: "absolute",
       left: "0",
-      bottom: "0",
+      bottom: "-10px",
       borderRadius: "20px",
       backgroundColor: "Primary",
       zIndex: "1",

@@ -19,10 +19,11 @@ export default function MainPage() {
             return (
               <MainPostCard
                 title={PostData.postDetail.title}
-                Desc={PostData.postDetail.content}
-                Date={PostData.postDetail.date}
-                tag={PostData.postDetail.Tag}
+                desc={PostData.postDetail.content}
+                date={PostData.postDetail.date}
+                tag={PostData.postDetail.tag}
                 url={PostData.listInfo.url}
+                thumbnail={PostData.postDetail.thumbnail}
                 key={nanoid()}
               />
             );

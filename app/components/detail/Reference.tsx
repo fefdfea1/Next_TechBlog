@@ -1,12 +1,18 @@
 import React from "react";
 import { css } from "@/styled-system/css";
 
-export default function Reference() {
+type propsType = {
+  referenceArray: string[];
+};
+
+export default function Reference(props: propsType) {
   return (
     <article className={ReferenceStyle}>
       <p>참고 사이트</p>
       <ul>
-        <li>https://www.naver.com/</li>
+        {props.referenceArray.map((item) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </article>
   );
@@ -14,6 +20,7 @@ export default function Reference() {
 
 const ReferenceStyle = css({
   width: "100%",
+  marginTop: "200px",
   borderRadius: "20px",
   backgroundColor: "Primary",
   color: "ReferenceBg",
@@ -25,10 +32,11 @@ const ReferenceStyle = css({
     fontSize: "1.375em",
   },
   "& ul": {
-    width: "100%",
+    width: "calc(100% + 2px)",
     borderRadius: "10px",
     backgroundColor: "ReferenceUlBg",
     border: "1px solid #999",
+    marginLeft: "-1px",
   },
   "& ul li": {
     position: "relative",

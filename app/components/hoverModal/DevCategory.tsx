@@ -26,6 +26,7 @@ const HoverModalStyle = css({
   position: "absolute",
   top: "100%",
   left: "0",
+  zIndex: "10",
   backgroundColor: "HoverModalBg",
   display: "none",
   gridTemplateColumns: "repeat(3, 1fr)",

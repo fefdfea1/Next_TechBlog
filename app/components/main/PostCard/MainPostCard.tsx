@@ -5,29 +5,29 @@ import Link from "next/link";
 
 type propsType = {
   title: string;
-  Desc: string;
-  Date: string;
+  desc: string;
+  date: string;
   tag: string;
   url: string;
+  thumbnail: string;
 };
 
 export default function MainPostCard(props: propsType) {
-  const descString = props.Desc.slice(0, 100);
-  console.log(descString);
+  const descString = props.desc.slice(0, 150);
   return (
     <article className={Card}>
       <Link href={`/detail/${props.url}`}>
         <picture className="thumbnail">
-          <img src="" alt="" />
+          <img src={props.thumbnail} alt={"이미지"} />
         </picture>
         <div className={PostInfo}>
           <span>{props.tag}</span>
           <h2>{props.title}</h2>
           <div className={`${style.Desc}`}>
-            <MDXRemote source={props.Desc} />
+            <MDXRemote source={descString} />
           </div>
 
-          <p>{props.Date}</p>
+          <p>{props.date}</p>
         </div>
       </Link>
     </article>
@@ -41,17 +41,25 @@ const Card = css({
   boxShadow: "0 4px 13px rgba(0,0,0,0.25)",
   borderRadius: "20px",
   overflow: "hidden",
+  "& > a": {
+    width: "100%",
+    height: "100%",
+    display: "block",
+  },
 
   "& .thumbnail": {
-    display: "block",
     width: "100%",
     height: "176px",
+    display: "block",
+    position: "relative",
     objectFit: "cover",
     borderBottom: "1px solid black",
     borderRadius: "20px 20px 0 0",
   },
 
   "& .thumbnail img": {
+    width: "100%",
+    height: "100%",
     objectFit: "cover",
   },
 });
