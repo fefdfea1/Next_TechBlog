@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from "@/styled-system/css";
+import { nanoid } from "nanoid";
 
 type propsType = {
   referenceArray: string[];
@@ -11,7 +12,7 @@ export default function Reference(props: propsType) {
       <p>참고 사이트</p>
       <ul>
         {props.referenceArray.map((item) => (
-          <li>{item}</li>
+          <li key={nanoid()}>{item}</li>
         ))}
       </ul>
     </article>
@@ -20,6 +21,10 @@ export default function Reference(props: propsType) {
 
 const ReferenceStyle = css({
   width: "100%",
+  position: "absolute",
+  bottom: "60px",
+  left: "50%",
+  transform: "translateX(-50%)",
   marginTop: "200px",
   borderRadius: "20px",
   backgroundColor: "Primary",

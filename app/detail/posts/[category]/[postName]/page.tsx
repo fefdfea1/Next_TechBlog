@@ -13,9 +13,9 @@ type params = {
 };
 
 export default function DetailPage(params: params) {
+  console.log(params);
   const path = getPostPaths(params.category, params.postName);
   const detail = parsePostDetail(path[0]);
-
   const options = {
     mdxOptions: {
       remarkPlugins: [],
@@ -26,17 +26,21 @@ export default function DetailPage(params: params) {
   return (
     <div className={DetailContainer}>
       <Header />
-      <Title Title={detail.title} />
+      <Title Title={detail.data.title} />
       <section className={Detail}>
         <MDXRemote source={detail.content} options={options} />
       </section>
-      {detail.reference && <Reference referenceArray={detail.reference} />}
+      {detail.data.reference && (
+        <Reference referenceArray={detail.data.reference} />
+      )}
     </div>
   );
 }
 
 const DetailContainer = css({
+  position: "relative",
   maxWidth: "1200px",
+  minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",

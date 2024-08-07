@@ -18,12 +18,12 @@ export default function MainPage() {
           if (PostData.listInfo && PostData.postDetail) {
             return (
               <MainPostCard
-                title={PostData.postDetail.title}
+                title={PostData.postDetail.data.title}
                 desc={PostData.postDetail.content}
-                date={PostData.postDetail.date}
-                tag={PostData.postDetail.tag}
+                date={PostData.postDetail.data.date}
+                tag={PostData.postDetail.data.tag}
                 url={PostData.listInfo.url}
-                thumbnail={PostData.postDetail.thumbnail}
+                thumbnail={PostData.postDetail.data.thumbnail}
                 key={nanoid()}
               />
             );
