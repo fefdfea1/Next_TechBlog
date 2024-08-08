@@ -33,6 +33,7 @@ const HoverModalStyle = css({
   padding: "30px",
   borderRadius: "15px",
   boxShadow: "0 2px 9px rgba(0,0,0,0.25)",
+  cursor: "auto",
 
   "&.active": {
     display: "grid",

@@ -14,6 +14,7 @@ type propsType = {
 
 export default function MainPostCard(props: propsType) {
   const descString = props.desc.slice(0, 150);
+  console.log(props.url);
   return (
     <article className={Card}>
       <Link href={`/detail/${props.url}`}>
@@ -22,7 +23,7 @@ export default function MainPostCard(props: propsType) {
         </picture>
         <div className={PostInfo}>
           <span>{props.tag}</span>
-          <h2>{props.title}</h2>
+          <h2 className={`${style.Desc}`}>{props.title}</h2>
           <div className={`${style.Desc}`}>
             <MDXRemote source={descString} />
           </div>

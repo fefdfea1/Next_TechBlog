@@ -5,8 +5,8 @@ export function parsePostAbstract(postPath: string) {
       .slice(change.indexOf(process.env.BASE_PATH))
       .replace(`${process.env.BASE_PATH}/`, "")
       .replace(".mdx", "");
-    const [category, fileName] = filePath.split("/"); // 카테고리와 파일 이름 분리
-    const url = `/posts/${category}/${fileName}`; // 모든 값이 있으니 category , slug 모두 return
+    const [category, slug, fileName] = filePath.split("/"); // 카테고리와 파일 이름 분리
+    const url = `/posts/${category}/${slug}/${fileName}`; // 모든 값이 있으니 category , slug 모두 return
     return { url };
   }
 }

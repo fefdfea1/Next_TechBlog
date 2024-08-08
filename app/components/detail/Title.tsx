@@ -33,6 +33,7 @@ const TitleStyle = css({
   },
 
   "& span": {
+    width: "100%",
     position: "relative",
     display: "inline-block",
     height: "100%",

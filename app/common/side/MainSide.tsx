@@ -1,21 +1,18 @@
+"use client";
 import { css } from "@/styled-system/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-
+import { sidebarActive } from "@/app/Logic/mainSideLogic/SideLogic";
 export default function MainSide() {
   return (
-    <aside className={Side}>
+    <aside className={Side} onClick={sidebarActive}>
       <div className="search">
         <input
           type="text"
           placeholder="포스트 제목을 입력해주세요"
           id="search"
         />
-        <label htmlFor="search">
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </label>
       </div>
       <div className={PostList}>
         <div>
@@ -25,15 +22,16 @@ export default function MainSide() {
           </div>
         </div>
         <ul>
-          <li>
+          <li className="sideActiveItem">
             <div>
               <span>Mark Up</span>
               <div className="postCount">
                 <span>1</span>
               </div>
+
               <FontAwesomeIcon icon={faArrowDown} />
             </div>
-            <ul className={`${ItemList} active`}>
+            <ul className={`${ItemList}`}>
               <li>
                 <FontAwesomeIcon icon={faChevronRight} />
                 <span>HTML</span>
@@ -51,22 +49,14 @@ export default function MainSide() {
 
 const Side = css({
   width: "19%",
-  maxWidth: "500px",
+  maxWidth: "272px",
+  minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   position: "fixed",
-  left: "20px",
-  top: "70px",
-
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    top: "0",
-    right: "59px",
-    width: "1px",
-    height: "800px",
-    backgroundColor: "black",
-  },
+  left: "0px",
+  top: "0px",
+  border: "1px solid black",
 
   "& > div .postCount": {
     display: "inline-flex",
@@ -85,23 +75,24 @@ const Side = css({
 
   "& .search": {
     display: "flex",
+    justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    marginTop: "50px",
 
     "&::after": {
       content: "''",
-      width: "74%",
+      width: "100%",
       height: "1px",
       position: "absolute",
-      top: "200%",
+      top: "187%",
       left: "0",
       backgroundColor: "black",
     },
 
     "& input": {
-      width: "200px",
+      width: "80%",
       borderRadius: "30px",
-      marginRight: "20px",
       padding: "17px 20px",
       fontSize: "0.875em",
       backgroundColor: "searchBg",
@@ -124,7 +115,7 @@ const PostList = css({
   marginTop: "82px",
   overflow: "auto",
   minHeight: "200px",
-  padding: "0 20px",
+  padding: "0 30px",
 
   "& > div": {
     display: "flex",
@@ -155,15 +146,25 @@ const PostList = css({
       width: "30px !important",
       height: "30px !important",
       marginLeft: "20px !important",
+      transform: "rotate(-90deg)",
+      transition: "all 0.2s",
     },
+
+    "& > li.active > div > svg": {
+      transform: "rotate(0deg)",
+    },
+  },
+  "& li.active ul": {
+    height: "auto",
   },
 });
 
 const ItemList = css({
   display: "flex",
   flexDirection: "column",
-  height: "0",
+  height: "0px",
   overflow: "hidden",
+  transition: "height 0.2s",
 
   "&.active": {
     height: "auto",

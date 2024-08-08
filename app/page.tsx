@@ -15,6 +15,7 @@ export default function MainPage() {
       <MainContent>
         {PostArray.map((item) => {
           const PostData = parsePost(item);
+
           if (PostData.listInfo && PostData.postDetail) {
             return (
               <MainPostCard

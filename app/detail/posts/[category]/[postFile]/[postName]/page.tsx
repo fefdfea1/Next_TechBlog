@@ -7,14 +7,25 @@ import Title from "@/app/components/detail/Title";
 import rehypeHighlight from "rehype-highlight";
 import Reference from "@/app/components/detail/Reference";
 
-type params = {
-  category: string;
-  postName: string;
+type urlType = {
+  params: {
+    [keys: string]: string;
+  };
+  searchParams: {
+    [keys: string]: string;
+  };
 };
 
-export default function DetailPage(params: params) {
-  console.log(params);
+type paramsType = {
+  [keys: string]: {
+    [keys: string]: string;
+  };
+};
+
+export default function DetailPage(url: urlType) {
+  const { params }: paramsType = url;
   const path = getPostPaths(params.category, params.postName);
+
   const detail = parsePostDetail(path[0]);
   const options = {
     mdxOptions: {
