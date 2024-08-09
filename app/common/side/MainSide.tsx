@@ -150,6 +150,14 @@ const PostList = css({
       transition: "all 0.2s",
     },
 
+    "& > li": {
+      transition: "color 0.2s",
+    },
+
+    "& > li.active": {
+      color: "ActiveColor",
+    },
+
     "& > li.active > div > svg": {
       transform: "rotate(0deg)",
     },
